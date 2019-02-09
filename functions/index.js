@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const { Storage } = require('@google-cloud/storage');
-const projectID = 'AIzaSyBix5LF2utfHvWl6VB2cjdvZKtjXdbLz98';
+const projectID = 'YOUR_PROJECT_ID';
 const gcs = new Storage({
     projectId: projectID
 });
@@ -62,7 +62,7 @@ exports.uploadFile = functions.https.onRequest((req, res) => {
         });
 
         busboy.on('finish', () => {
-            const bucket = gcs.bucket('ayuntamiento-77d3b.appspot.com');
+            const bucket = gcs.bucket('YOUR_BUCKET');
             bucket.upload(uploadData.file, {
                 uploadType: 'media',
                 metadata: {
